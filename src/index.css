@@ -11,3 +11,76 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.page__title {
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemon__list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 150px 150px 150px 150px 150px;
+  grid-gap: 20px;
+}
+
+.card {
+  width: 100%;
+}
+
+.list__item {
+  border: solid 1px black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(173, 216, 230, 0.2);
+  padding: 0;
+  box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.151);
+}
+
+.list__item:hover {
+  transform: scale(1.1);
+}
+
+.image__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1px black;
+}
+
+.list__item--title {
+  text-transform: capitalize;
+  text-align: center;
+  margin: 10px 0;
+  font-size: 18px;  
+}
+
+
+.list__item--types {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: solid 1px black;
+  padding: 10px 10px;
+}
+
+.types__item {
+  background-color: grey;
+  border-radius: 30px;
+  padding: 5px;
+  margin-right: 5px;
+  text-transform: uppercase;
+  color: white;
+  font-size: 10px;
+}
