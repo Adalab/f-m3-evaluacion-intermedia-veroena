@@ -1,7 +1,7 @@
 import React from 'react';
 import PokeList from './components/PokeList';
 
-const pokemon = [
+const pokemonArray = [
   {"id":1,"name":"bulbasaur","types":["poison","grass"],"evolution":null,"url":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"},
   {"id":2,"name":"ivysaur","types":["poison","grass"],"evolution":"bulbasaur","url":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"},
   {"id":3,"name":"venusaur","types":["poison","grass"],"evolution":"ivysaur","url":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"},
@@ -15,6 +15,27 @@ const pokemon = [
 ];
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pokemon: pokemonArray
+    }
+    this.handleClickFilter = this.handleClickFilter.bind(this);
+    this.handleClickBack = this.handleClickBack.bind(this);
+  }
+
+  handleClickFilter(event) {
+    const inner = event.currentTarget.innerHTML;
+    this.setState(() => {
+      const newPokemonArray = pokemonArray.filter(itemPoke => itemPoke.types.includes(inner))
+      return {pokemon: newPokemonArray}
+    })
+  }
+
+  handleClickBack() {
+    this.setState({pokemon : pokemonArray});
+  }
+
   render() {
     return (
       <div className="App">
@@ -23,10 +44,10 @@ class App extends React.Component {
         <div className="pokemon__logo"></div>
       </header>
         <div className="wrapper">
-          <PokeList pokemon={pokemon} />
+          <PokeList pokemon={this.state.pokemon} handleClickFilter={this.handleClickFilter} />
         </div>
       <footer className="footer">
-        <div className="pokeball"></div>
+        <button onClick={this.handleClickBack} className="pokeball"><img src="https://img.icons8.com/color/50/000000/pokeball.png" alt="pokeball"></img>Back</button>
       </footer>
       </div>
     );

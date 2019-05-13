@@ -121,9 +121,16 @@ code {
 }
 
 .pokeball {
-  height: 40px;
-  width: 40px;
-  background-image: url('https://img.icons8.com/color/50/000000/pokeball.png');
-  background-position: center;
-  background-size: cover;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pokeball:hover {
+  box-shadow: 5px 5px 5px darkslategray;
 }

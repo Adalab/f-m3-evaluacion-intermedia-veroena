@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Pokemon extends React.Component {
   render () {
-    const {url, name, types} = this.props;
+    const {url, name, types, handleClickFilter} = this.props;
     return(
       <div className="card">
         <div className="image__container">
@@ -12,7 +12,7 @@ class Pokemon extends React.Component {
         <h2 className="list__item--title">{name}</h2>
         <ul className="list__item--types">
           {types.map((item, index) => 
-            <li key={index} className="types__item">{item}</li>
+            <li onClick={handleClickFilter} key={index} className="types__item">{item}</li>
           )}
         </ul>
       </div>
