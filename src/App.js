@@ -18,10 +18,16 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1 className="page__title">Mi lista de Pokemon</h1>
+      <header className="header">
+        <h1 className="page__title">Mi lista de</h1>
+        <div className="pokemon__logo"></div>
+      </header>
         <div className="wrapper">
           <PokeList pokemon={pokemon} />
         </div>
+      <footer className="footer">
+        <div className="pokeball"></div>
+      </footer>
       </div>
     );
   }

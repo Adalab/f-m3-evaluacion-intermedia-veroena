@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  background-color: #4CA7D7;
+  height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -12,8 +14,25 @@ code {
     monospace;
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
 .page__title {
   text-align: center;
+  color: white;
+  font-size: 40px;
+}
+
+.pokemon__logo {
+  width: 260px;
+  height: 125px;
+  background-image: url('https://seeklogo.com/images/P/Pokemon-logo-497D61B223-seeklogo.com.png');
+  background-position: center;
+  background-size: cover;
 }
 
 .wrapper {
@@ -41,7 +60,7 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(173, 216, 230, 0.2);
+  background-color: white;
   padding: 0;
   box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.151);
 }
@@ -55,6 +74,10 @@ code {
   justify-content: center;
   align-items: center;
   border-bottom: solid 1px black;
+}
+
+.list__item--image:hover {
+  transform: scale(1.4);
 }
 
 .list__item--title {
@@ -83,4 +106,24 @@ code {
   text-transform: uppercase;
   color: white;
   font-size: 10px;
+}
+
+.types__item:hover {
+  background-color: orange;
+} 
+
+.footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.pokeball {
+  height: 40px;
+  width: 40px;
+  background-image: url('https://img.icons8.com/color/50/000000/pokeball.png');
+  background-position: center;
+  background-size: cover;
 }
