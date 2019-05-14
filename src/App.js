@@ -1,5 +1,6 @@
 import React from 'react';
 import PokeList from './components/PokeList';
+import Footer from './components/Footer';
 
 const pokemonArray = [
   {"id":1,"name":"bulbasaur","types":["poison","grass"],"evolution":null,"url":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"},
@@ -22,6 +23,7 @@ class App extends React.Component {
     }
     this.handleClickFilter = this.handleClickFilter.bind(this);
     this.handleClickBack = this.handleClickBack.bind(this);
+    this.handleClickAlert = this.handleClickAlert.bind(this);
   }
 
   handleClickFilter(event) {
@@ -36,19 +38,21 @@ class App extends React.Component {
     this.setState({pokemon : pokemonArray});
   }
 
+  handleClickAlert() {
+    alert(`Please don't hurt the Pokemon. They're a protected species and very friendly.`);
+  }
+
   render() {
     return (
       <div className="App">
-      <header className="header">
-        <h1 className="page__title">Mi lista de</h1>
-        <div className="pokemon__logo"></div>
-      </header>
-        <div className="wrapper">
-          <PokeList pokemon={this.state.pokemon} handleClickFilter={this.handleClickFilter} />
-        </div>
-      <footer className="footer">
-        <button onClick={this.handleClickBack} className="pokeball"><img src="https://img.icons8.com/color/50/000000/pokeball.png" alt="pokeball"></img>Back</button>
-      </footer>
+        <header className="header">
+          <h1 className="page__title">Mi lista de</h1>
+          <div className="pokemon__logo"></div>
+        </header>
+          <div className="wrapper">
+            <PokeList pokemon={this.state.pokemon} handleClickFilter={this.handleClickFilter} handleClickAlert= {this.handleClickAlert} />
+          </div>
+        <Footer handleClickBack={this.handleClickBack} />
       </div>
     );
   }

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 class Pokemon extends React.Component {
   render () {
-    const {url, name, types, handleClickFilter} = this.props;
+    const {url, name, types, handleClickFilter, handleClickAlert} = this.props;
     return(
       <div className="card">
-        <div className="image__container">
+        <div className="image__container" onClick={handleClickAlert}>
           <img src={url} alt="" className="list__item--image"/>
         </div>
         <h2 className="list__item--title">{name}</h2>
@@ -20,10 +20,10 @@ class Pokemon extends React.Component {
   }
 }
 
-export default Pokemon;
-
 Pokemon.propTypes = {
   url: PropTypes.string,
   name: PropTypes.string,
   types: PropTypes.arrayOf(PropTypes.string),
 }
+
+export default Pokemon;

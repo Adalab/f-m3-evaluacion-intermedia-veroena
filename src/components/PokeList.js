@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 
 class PokeList extends React.Component {
   render() {
-    const {pokemon, handleClickFilter} = this.props;
+    const {pokemon, handleClickFilter, handleClickAlert} = this.props;
     return(
       <ul className="pokemon__list">
-      {pokemon.map((item, index) => 
-        <li key={index} className="list__item">
-          <Pokemon url={item.url} name={item.name} types={item.types} handleClickFilter={handleClickFilter} />
+      {pokemon.map((item) => 
+        <li key={item.id} className="list__item">
+          <Pokemon url={item.url} name={item.name} types={item.types} handleClickFilter={handleClickFilter} handleClickAlert={handleClickAlert} />
         </li>  
       )}          
     </ul>
@@ -17,8 +17,8 @@ class PokeList extends React.Component {
   }
 }
 
-export default PokeList;
-
 PokeList.propTypes = {
   pokemon: PropTypes.arrayOf(PropTypes.object),
 }
+
+export default PokeList;
