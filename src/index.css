@@ -24,6 +24,7 @@ code {
   text-align: center;
   color: white;
   font-size: 40px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .pokemon__logo {
@@ -62,6 +63,7 @@ code {
   background-color: white;
   padding: 0;
   box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.151);
+  position: relative;
 }
 
 .list__item:hover {
@@ -84,8 +86,27 @@ code {
   text-align: center;
   margin: 10px 0;
   font-size: 18px;  
+  font-family: 'Roboto', sans-serif;
 }
 
+.fa-info {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: white;
+  color: orange;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  top: 88%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.fa-info:hover {
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.151);
+}
 
 .list__item--types {
   list-style: none;
@@ -105,6 +126,7 @@ code {
   text-transform: uppercase;
   color: white;
   font-size: 10px;
+  cursor: pointer;
 }
 
 .types__item:hover {
@@ -132,4 +154,95 @@ code {
 
 .pokeball:hover {
   box-shadow: 5px 5px 5px darkslategray;
+}
+
+
+
+
+/* // MODAL */
+
+.container__modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.modal {
+  width: 420px;
+  height: 260px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px 20px 20px 20px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close__container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.fa-times {
+  background-color: white;
+  color: red;
+  cursor: pointer;
+}
+
+.fa-times:hover {
+  transform: scale(1.3);
+}
+
+.modal__name{
+  margin: 0;
+  text-align: center;
+  text-transform: capitalize;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.modal__content--container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.modal__stats {
+  flex-grow: 1;
+}
+
+.modal__types--title, .modal__abilities--title {
+  margin: 0 0 10px 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.modal__types, .modal__abilities {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.modal__types--item {
+  margin-right: 10px;
+  font-family: 'Open Sans', sans-serif;
+  background-color: lightsalmon;
+  border-radius: 30px;
+  padding: 5px 10px;
+}
+
+.modal__abilities--item {
+  margin-right: 10px;
+  font-family: 'Open Sans', sans-serif;
+  background-color: lightblue;
+  border-radius: 30px;
+  padding: 5px 10px;
 }
