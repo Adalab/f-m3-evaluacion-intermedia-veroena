@@ -21,13 +21,13 @@ class App extends React.Component {
     super(props);
     this.state = {
       pokemon: pokemonArray,
-      isModalVisible: false
+      isModalVisible: false,
+      id: ''
     }
     this.handleClickFilter = this.handleClickFilter.bind(this);
     this.handleClickBack = this.handleClickBack.bind(this);
     this.handleClickAlert = this.handleClickAlert.bind(this);
     this.handleClickModal = this.handleClickModal.bind(this);
-    this.handleClickCloseModal = this.handleClickCloseModal.bind(this);
   }
 
   handleClickFilter(event) {
@@ -46,16 +46,9 @@ class App extends React.Component {
     alert(`Please don't hurt the Pokemon. They're a protected species and very friendly.`);
   }
 
-  handleClickModal() {
-    this.setState({
-      isModalVisible: true
-    })
-  } 
-
-  handleClickCloseModal() {
-    this.setState({
-      isModalVisible: false
-    })
+  handleClickModal(event) {
+    this.setState((prevState)=>{return {isModalVisible : !prevState.isModalVisible }})
+    this.setState({id : event.currentTarget.id -1});
   }
 
   render() {
@@ -66,10 +59,10 @@ class App extends React.Component {
           <div className="pokemon__logo"></div>
         </header>
           <div className="wrapper">
-            <PokeList pokemon={this.state.pokemon} handleClickFilter={this.handleClickFilter} handleClickAlert= {this.handleClickAlert} handleClickModal={this.handleClickModal} pokemonArray={pokemonArray} handleClickModalContent={this.handleClickModalContent} />
+            <PokeList pokemon={this.state.pokemon} handleClickFilter={this.handleClickFilter} handleClickAlert= {this.handleClickAlert} handleClickModal={this.handleClickModal} pokemonArray={pokemonArray} />
           </div>
         <Footer handleClickBack={this.handleClickBack}  />
-        {this.state.isModalVisible && <Modal handleClickCloseModal={this.handleClickCloseModal} />}
+        {this.state.isModalVisible && <Modal handleClickModal={this.handleClickModal} pokemonId={this.state.id} />}
 
       </div>
     );

@@ -16,30 +16,30 @@ const pokemonArray = [
 
 class Modal extends React.Component {
   render() {
-    const {handleClickCloseModal} = this.props; 
+    const {handleClickModal, pokemonId} = this.props; 
     return (
       <div className="container__modal">
         <div className="modal">
           <div className="modal__content">
-            <div className="close__container"><i onClick={handleClickCloseModal} className="fas fa-times"></i></div>
-            <h3 className="modal__name">{pokemonArray[0].name}</h3>
+            <div className="close__container"><i onClick={handleClickModal} className="fas fa-times"></i></div>
+            <h3 className="modal__name">{pokemonArray[pokemonId].name}</h3>
             <div className="modal__content--container">
-              <img src={pokemonArray[0].url} alt={pokemonArray[0].name} className="pokemon__pic"/>
+              <img src={pokemonArray[pokemonId].url} alt={pokemonArray[pokemonId].name} className="pokemon__pic"/>
               <div className="modal__stats">
                 <h4 className="modal__types--title">types</h4>
                 <ul className="modal__types">
-                  {pokemonArray[0].types.map((type, index) =>
+                  {pokemonArray[pokemonId].types.map((type, index) =>
                     <li key={index} className="modal__types--item">{type}</li>
                   )}
                 </ul>
                 <h4 className="modal__abilities--title">abilities</h4>
                 <ul className="modal__abilities">
-                  {pokemonArray[0].abilities.map((abilities, index) =>
+                  {pokemonArray[pokemonId].abilities.map((abilities, index) =>
                     <li key={index} className="modal__abilities--item">{abilities}</li>
                   )}
                 </ul>
               </div>
-              <img src={pokemonArray[0].urlback} alt={pokemonArray[0].name} className="pokemon__back--pic"/>
+              <img src={pokemonArray[pokemonId].urlback} alt={pokemonArray[pokemonId].name} className="pokemon__back--pic"/>
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-  handleClickCloseModal: PropTypes.func.isRequired
+  handleClickModal: PropTypes.func.isRequired
 }
 
 export default Modal;

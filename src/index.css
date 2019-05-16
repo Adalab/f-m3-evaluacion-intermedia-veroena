@@ -237,6 +237,7 @@ code {
   background-color: lightsalmon;
   border-radius: 30px;
   padding: 5px 10px;
+  font-size: 15px;
 }
 
 .modal__abilities--item {
@@ -245,4 +246,5 @@ code {
   background-color: lightblue;
   border-radius: 30px;
   padding: 5px 10px;
+  font-size: 15px;
 }
