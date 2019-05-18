@@ -6,6 +6,9 @@ class Pokemon extends React.Component {
     const {url, name, types, id, handleClickFilter, handleClickAlert, handleClickModal} = this.props;
     return(
       <div className="card">
+        <div className="speech__container">
+          <div className="speech__content">{name}</div>
+        </div>
         <div className="image__container" onClick={handleClickAlert}>
           <img src={url} alt="" className="list__item--image"/>
         </div>

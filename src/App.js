@@ -47,8 +47,7 @@ class App extends React.Component {
   }
 
   handleClickModal(event) {
-    this.setState((prevState)=>{return {isModalVisible : !prevState.isModalVisible }})
-    this.setState({id : event.currentTarget.id -1});
+    this.setState((prevState)=>{return {isModalVisible : !prevState.isModalVisible, id : event.currentTarget.id -1 }})
   }
 
   render() {
