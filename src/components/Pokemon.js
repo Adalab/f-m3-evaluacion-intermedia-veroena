@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 
 class Pokemon extends React.Component {
   render () {
-    const {url, name, types, id, handleClickFilter, handleClickAlert, handleClickModal} = this.props;
+    const {url, name, types, id, catchphrase, handleClickFilter, handleClickModal, handleClickSpeech, speechId} = this.props;
     return(
-      <div className="card">
-        <div className="speech__container">
-          <div className="speech__content">{name}</div>
-        </div>
-        <div className="image__container" onClick={handleClickAlert}>
-          <img src={url} alt="" className="list__item--image"/>
+      <div id={id} className={`card ${speechId === id ? 'card--open' : '' }`}>
+        <div className="speech__container">{catchphrase}</div>
+        {/* {isSpeechVisible && <div className="speech__container">{catchphrase}</div>} */}
+        <div className="image__container" onClick={handleClickSpeech} data-id={id}>
+          <img src={url} alt={name} className="list__item--image" data-id={id} />
         </div>
         <h2 className="list__item--title">{name}</h2>
         <div className="lower__part">
@@ -32,7 +31,7 @@ Pokemon.propTypes = {
   types: PropTypes.arrayOf(PropTypes.string).isRequired,
   id: PropTypes.number.isRequired,
   handleClickFilter: PropTypes.func.isRequired,
-  handleClickAlert: PropTypes.func.isRequired,
+  handleClickSpeech: PropTypes.func.isRequired,
   handleClickModal: PropTypes.func.isRequired
 }
 

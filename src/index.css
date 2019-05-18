@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #4CA7D7;
+  background-color: #4ca7d7;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -24,13 +24,13 @@ code {
   text-align: center;
   color: white;
   font-size: 40px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .pokemon__logo {
   width: 260px;
   height: 125px;
-  background-image: url('https://seeklogo.com/images/P/Pokemon-logo-497D61B223-seeklogo.com.png');
+  background-image: url("https://seeklogo.com/images/P/Pokemon-logo-497D61B223-seeklogo.com.png");
   background-position: center;
   background-size: cover;
 }
@@ -51,6 +51,35 @@ code {
 
 .card {
   width: 100%;
+  position: relative;
+}
+
+.card--open .speech__container {
+  display: block;
+  position: absolute;
+  top: -30%;
+  left: -40%;
+  padding: 20px;
+  background-color: white;
+  border: solid 4px orange;
+  border-radius: 45%;
+}
+
+.card--open .speech__container::after {
+  content: ' ';
+  height: 0;
+  width: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid orange;
+  transform: rotate(340deg);
+  position: absolute;
+  top: 90%;
+  left: 80%;
+}
+
+.speech__container {
+  display: none;
 }
 
 .list__item {
@@ -85,8 +114,8 @@ code {
   text-transform: capitalize;
   text-align: center;
   margin: 10px 0;
-  font-size: 18px;  
-  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
 }
 
 .fa-info {
@@ -131,7 +160,7 @@ code {
 
 .types__item:hover {
   background-color: orange;
-} 
+}
 
 .footer {
   height: 50px;
@@ -155,9 +184,6 @@ code {
 .pokeball:hover {
   box-shadow: 5px 5px 5px darkslategray;
 }
-
-
-
 
 /* // MODAL */
 
@@ -199,11 +225,11 @@ code {
   transform: scale(1.3);
 }
 
-.modal__name{
+.modal__name {
   margin: 0;
   text-align: center;
   text-transform: capitalize;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .modal__content--container {
@@ -217,12 +243,14 @@ code {
   flex-grow: 1;
 }
 
-.modal__types--title, .modal__abilities--title {
+.modal__types--title,
+.modal__abilities--title {
   margin: 0 0 10px 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
-.modal__types, .modal__abilities {
+.modal__types,
+.modal__abilities {
   list-style: none;
   display: flex;
   justify-content: flex-start;
@@ -233,7 +261,7 @@ code {
 
 .modal__types--item {
   margin-right: 10px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   background-color: lightsalmon;
   border-radius: 30px;
   padding: 5px 10px;
@@ -242,7 +270,7 @@ code {
 
 .modal__abilities--item {
   margin-right: 10px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   background-color: lightblue;
   border-radius: 30px;
   padding: 5px 10px;
