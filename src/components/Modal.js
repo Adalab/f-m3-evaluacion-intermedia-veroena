@@ -36,7 +36,9 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-  handleClickModal: PropTypes.func.isRequired
+  handleClickModal: PropTypes.func.isRequired,
+  pokemonId: PropTypes.number.isRequired,
+  pokemon: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 export default Modal;
