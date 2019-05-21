@@ -14,7 +14,7 @@ class App extends React.Component {
       isModalVisible: false,
       id: null,
       speechId: null,
-      faveArr: [],
+      faveArr: JSON.parse(localStorage.getItem('faveArr')) || [],
       isFavoriteVisible: false
     }
     this.handleClickFilter = this.handleClickFilter.bind(this);
