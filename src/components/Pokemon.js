@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class Pokemon extends React.Component {
   render () {
@@ -8,7 +9,7 @@ class Pokemon extends React.Component {
       <div id={id} className="card">
         {speechId === id ? <div className="speech__container">{catchphrase}</div> : null }
         <i id={id} onClick={addFavorites} className={`pokemon__favorite ${faveArr.includes(id) ? 'fas fa-heart' : 'far fa-heart'}`}></i>
-        {/* <i id={id} className="pokemon__favorite far fa-heart" onClick={addFavorites}></i> */}
+        <Link className="main__landing-start" to={`/child/${id}`}><i className="pokemon__link fas fa-link"></i></Link>
         <div className="image__container" onClick={handleClickSpeech} data-id={id}>
           <img src={url} alt={name} className="list__item--image" data-id={id} />
         </div>

@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 class PokeList extends React.Component {
   render() {
-    const {pokemon, handleClickFilter, handleClickModal, handleClickSpeech, speechId, addFavorites, faveArr} = this.props;
+    const {pokemonFilter, handleClickFilter, handleClickModal, handleClickSpeech, speechId, addFavorites, faveArr} = this.props;
     return(
       <ul className="pokemon__list">
-      {pokemon.map((item, index) => 
+      {pokemonFilter.map((item, index) => 
         <li key={item.id} id={item.id} className="list__item">
           <Pokemon url={item.url} name={item.name} types={item.types} id={item.id} catchphrase={item.catchphrase} handleClickFilter={handleClickFilter} handleClickModal={handleClickModal} handleClickSpeech={handleClickSpeech} speechId={speechId} addFavorites={addFavorites} faveArr={faveArr} />
         </li>  
@@ -18,7 +18,7 @@ class PokeList extends React.Component {
 }
 
 PokeList.propTypes = {
-  pokemon: PropTypes.arrayOf(PropTypes.object).isRequired,
+  pokemonFilter: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleClickFilter: PropTypes.func.isRequired,
   handleClickSpeech: PropTypes.func.isRequired,
   handleClickModal: PropTypes.func.isRequired,

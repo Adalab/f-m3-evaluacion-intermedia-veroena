@@ -1,6 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './stylesheets/index.css';
+import './stylesheets/modal.css';
+import './stylesheets/detail.css';
+import './stylesheets/header.css';
+import './stylesheets/main.css';
+import './stylesheets/footer.css';
 import App from './App';
+import { HashRouter } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <HashRouter>
+    <App />
+  </HashRouter>,
+  document.getElementById('root')
+);

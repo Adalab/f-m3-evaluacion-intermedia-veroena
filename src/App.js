@@ -1,8 +1,8 @@
 import React from 'react';
-import PokeList from './components/PokeList';
-import Footer from './components/Footer';
-import Modal from './components/Modal';
+import Home from './components/Home';
+import PokemonDetail from './components/PokemonDetail'
 import { pokemonArray } from './data/appData';
+import { Route, Switch } from 'react-router-dom';
 
 
 class App extends React.Component {
@@ -74,16 +74,28 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="header">
-          <h1 className="page__title">Mi lista de</h1>
-          <div className="pokemon__logo"></div>
-        </header>
-          <div className="wrapper">
-            <PokeList pokemon={this.state.pokemonFilter} handleClickFilter={this.handleClickFilter} handleClickModal={this.handleClickModal} handleClickSpeech={this.handleClickSpeech} speechId={this.state.speechId} handleClickFavorites={this.handleClickFavorites} addFavorites={this.addFavorites} faveArr={this.state.faveArr} />
-          </div>
-        <Footer handleClickBack={this.handleClickBack} faveArr={this.state.faveArr} pokemon={this.state.pokemon} showFavorites={this.showFavorites} isFavoriteVisible={this.state.isFavoriteVisible} />
-        {this.state.isModalVisible && <Modal handleClickModal={this.handleClickModal} pokemonId={this.state.id} pokemon={this.state.pokemon} />}
-
+        <Switch>
+          <Route exact path="/" render={() => (<Home  
+            pokemonFilter={this.state.pokemonFilter}
+            pokemon={this.state.pokemon}
+            pokemonId={this.state.id}
+            handleClickFilter={this.handleClickFilter}
+            handleClickModal={this.handleClickModal} 
+            handleClickSpeech={this.handleClickSpeech}
+            speechId={this.state.speechId}
+            handleClickFavorites={this.handleClickFavorites}
+            addFavorites={this.addFavorites}
+            faveArr={this.state.faveArr}
+            handleClickBack={this.handleClickBack}
+            showFavorites={this.showFavorites}
+            isFavoriteVisible={this.state.isFavoriteVisible}
+            isModalVisible={this.state.isModalVisible} />) }
+          />
+          <Route path="/child/:ID" render={props => (<PokemonDetail
+            match={props.match}
+            pokemon={this.state.pokemon}
+          />)} />
+        </Switch>
       </div>
     );
   }

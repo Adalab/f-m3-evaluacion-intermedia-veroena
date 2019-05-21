@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.page__title {
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.pokemon__logo {
+  width: 260px;
+  height: 125px;
+  background-image: url("https://seeklogo.com/images/P/Pokemon-logo-497D61B223-seeklogo.com.png");
+  background-position: center;
+  background-size: cover;
+}
