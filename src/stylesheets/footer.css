@@ -1,0 +1,55 @@
+.favorites {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.favorites__title {
+  cursor: pointer;
+  background-color: lightgray;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.favorites__title:hover {
+  box-shadow: 5px 5px 5px darkslategray;
+}
+
+.favorites__list {
+  list-style: none;
+  padding: 0;
+  /* display: flex; */
+  transform: scale(0.7) translate(-50%, -50%);
+  background-color: rgba(255, 165, 0, 0.9);
+  border-radius: 5px;
+  border: solid 2px darkslategray;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  
+  position: absolute;
+  left: 120%;
+  top: -55%;
+}
+
+.footer {
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.pokeball {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pokeball:hover {
+  box-shadow: 5px 5px 5px darkslategray;
+}
