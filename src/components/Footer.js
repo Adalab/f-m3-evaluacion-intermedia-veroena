@@ -11,8 +11,8 @@ const Footer = (props) => {
         <ul className="favorites__list">
           {faveArr.length !== 0 ? 
           faveArr.map(item => 
-            <li className="favorites__list--item" key={pokemon[item].id}>
-              <img src={pokemon[item].url} alt={pokemon[item].name} />
+            <li className="favorites__list--item" key={pokemon[item -1].id}>
+              <img src={pokemon[item -1].url} alt={pokemon[item -1].name} />
             </li>
           )
           :

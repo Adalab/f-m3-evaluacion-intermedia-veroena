@@ -9,7 +9,7 @@ class PokeList extends React.Component {
       <ul className="pokemon__list">
       {pokemon.map((item, index) => 
         <li key={item.id} id={item.id} className="list__item">
-          <Pokemon url={item.url} name={item.name} types={item.types} id={index} catchphrase={item.catchphrase} handleClickFilter={handleClickFilter} handleClickModal={handleClickModal} handleClickSpeech={handleClickSpeech} speechId={speechId} addFavorites={addFavorites} faveArr={faveArr} />
+          <Pokemon url={item.url} name={item.name} types={item.types} id={item.id} catchphrase={item.catchphrase} handleClickFilter={handleClickFilter} handleClickModal={handleClickModal} handleClickSpeech={handleClickSpeech} speechId={speechId} addFavorites={addFavorites} faveArr={faveArr} />
         </li>  
       )}          
     </ul>

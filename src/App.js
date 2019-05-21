@@ -10,6 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       pokemon: pokemonArray,
+      pokemonFilter: pokemonArray,
       isModalVisible: false,
       id: null,
       speechId: null,
@@ -28,17 +29,17 @@ class App extends React.Component {
     const inner = event.currentTarget.innerHTML;
     this.setState(() => {
       const newPokemonArray = pokemonArray.filter(itemPoke => itemPoke.types.includes(inner))
-      return {pokemon: newPokemonArray}
+      return {pokemonFilter: newPokemonArray}
     })
   }
 
   handleClickBack() {
-    this.setState({pokemon : pokemonArray});
+    this.setState({pokemonFilter : pokemonArray});
   }
 
   handleClickModal(event) {
     const currentId = event.currentTarget.id
-    this.setState((prevState)=>{return {isModalVisible : !prevState.isModalVisible, id : parseInt(currentId) }})
+    this.setState((prevState)=>{return {isModalVisible : !prevState.isModalVisible, id : parseInt(currentId) -1 }})
   }
 
   handleClickSpeech(event) {
@@ -57,12 +58,13 @@ class App extends React.Component {
     if (!this.state.faveArr.includes(faveCurrentId)) {
       this.setState(prevState => ({
         faveArr: [...prevState.faveArr, faveCurrentId]
-      }))
+      }), () => localStorage.setItem('faveArr', JSON.stringify(this.state.faveArr)));
     } else {
       const filteredFaves = this.state.faveArr.filter(item => item !== faveCurrentId);
-      this.setState({faveArr: filteredFaves});
+      this.setState({faveArr: filteredFaves},  () => localStorage.setItem('faveArr', JSON.stringify(this.state.faveArr)))
     }
   }
+
 
   showFavorites () {
     this.setState((prevState)=>{return {isFavoriteVisible : !prevState.isFavoriteVisible}})
@@ -77,7 +79,7 @@ class App extends React.Component {
           <div className="pokemon__logo"></div>
         </header>
           <div className="wrapper">
-            <PokeList pokemon={this.state.pokemon} handleClickFilter={this.handleClickFilter} handleClickModal={this.handleClickModal} handleClickSpeech={this.handleClickSpeech} speechId={this.state.speechId} handleClickFavorites={this.handleClickFavorites} addFavorites={this.addFavorites} faveArr={this.state.faveArr} />
+            <PokeList pokemon={this.state.pokemonFilter} handleClickFilter={this.handleClickFilter} handleClickModal={this.handleClickModal} handleClickSpeech={this.handleClickSpeech} speechId={this.state.speechId} handleClickFavorites={this.handleClickFavorites} addFavorites={this.addFavorites} faveArr={this.state.faveArr} />
           </div>
         <Footer handleClickBack={this.handleClickBack} faveArr={this.state.faveArr} pokemon={this.state.pokemon} showFavorites={this.showFavorites} isFavoriteVisible={this.state.isFavoriteVisible} />
         {this.state.isModalVisible && <Modal handleClickModal={this.handleClickModal} pokemonId={this.state.id} pokemon={this.state.pokemon} />}
