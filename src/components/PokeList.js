@@ -22,7 +22,9 @@ PokeList.propTypes = {
   handleClickFilter: PropTypes.func.isRequired,
   handleClickSpeech: PropTypes.func.isRequired,
   handleClickModal: PropTypes.func.isRequired,
-  speechId: PropTypes.number
+  speechId: PropTypes.number,
+  addFavorites: PropTypes.func.isRequired,
+  faveArr: PropTypes.arrayOf(PropTypes.number).isRequired
 }
 
 export default PokeList;

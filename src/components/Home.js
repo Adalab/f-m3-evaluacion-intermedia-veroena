@@ -2,6 +2,7 @@ import React from 'react';
 import PokeList from './PokeList';
 import Footer from './Footer';
 import Modal from './Modal';
+import PropTypes from 'prop-types';
 
 class Home extends React.Component {
   render() {
@@ -21,6 +22,23 @@ class Home extends React.Component {
       </div>
     )
   }
+}
+
+Home.propTypes = {
+  pokemonFilter: PropTypes.arrayOf(PropTypes.object).isRequired,
+  pokemon: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleClickFilter: PropTypes.func.isRequired,
+  handleClickModal: PropTypes.func.isRequired,
+  handleClickSpeech: PropTypes.func.isRequired,
+  handleClickFavorites: PropTypes.func,
+  addFavorites: PropTypes.func.isRequired,
+  handleClickBack: PropTypes.func.isRequired,
+  speechId: PropTypes.number,
+  faveArr: PropTypes.arrayOf(PropTypes.number).isRequired,
+  showFavorites: PropTypes.func.isRequired,
+  isFavoriteVisible: PropTypes.bool.isRequired,
+  isModalVisible: PropTypes.bool.isRequired,
+  pokemonId: PropTypes.number
 }
 
 export default Home;
