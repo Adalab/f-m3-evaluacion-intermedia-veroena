@@ -27,7 +27,11 @@ const Footer = (props) => {
 }
 
 Footer.propTypes = {
-  handleClickBack: PropTypes.func
+  handleClickBack: PropTypes.func.isRequired,
+  faveArr: PropTypes.arrayOf(PropTypes.number).isRequired,
+  pokemon: PropTypes.arrayOf(PropTypes.object).isRequired,
+  showFavorites: PropTypes.func.isRequired,
+  isFavoriteVisible: PropTypes.bool.isRequired
 }
 
 export default Footer;

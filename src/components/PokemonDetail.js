@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class PokemonDetail extends React.Component {
   render() {
@@ -53,6 +54,11 @@ class PokemonDetail extends React.Component {
     </div>
     )
   }
+}
+
+PokemonDetail.propTypes = {
+  pokemon: PropTypes.arrayOf(PropTypes.object).isRequired,
+  ID: PropTypes.number
 }
 
 export default PokemonDetail;
